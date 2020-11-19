@@ -4,15 +4,29 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using newProjectTp1.Models;
+using newProjectTp1.Models.repositories;
 
 namespace newProjectTp1.Controllers
 {
     public class EmployeeController : Controller
     {
+        readonly IRepository<Employee> employeeRepository;
+
+        public EmployeeController(IRepository<Employee> empRepository)
+        {
+            employeeRepository = empRepository;
+
+        }
+
+
+
         // GET: EmployeeController
         public ActionResult Index()
         {
-            return View();
+            var employees = employeeRepository.GetAll();
+
+            return View(employees);
         }
 
         // GET: EmployeeController/Details/5

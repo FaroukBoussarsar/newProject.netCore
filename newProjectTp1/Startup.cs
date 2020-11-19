@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using newProjectTp1.Models;
+using newProjectTp1.Models.repositories;
 
 namespace newProjectTp1
 {
@@ -24,6 +26,7 @@ namespace newProjectTp1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<IRepository<Employee>, EmployeeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
