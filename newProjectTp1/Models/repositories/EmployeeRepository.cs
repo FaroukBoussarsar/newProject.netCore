@@ -46,12 +46,13 @@ namespace newProjectTp1.Models.repositories
 
         public int HrEmployeeCOunt()
         {
-            throw new NotImplementedException();
+            return lemployees.Where(x => x.Department == "HR").Count();
+
         }
 
         public double MaxSalary()
         {
-            throw new NotImplementedException();
+            return lemployees.Max(x => x.Salary);
         }
 
         public double SalaryAverage()
